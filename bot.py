@@ -9,16 +9,17 @@ from pokebase import pokemon
 from uuid import uuid4
 from collections import defaultdict
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from database import pokemon_database  
 from PIL import Image, ImageDraw, ImageFont
-from pokestore import pokemon_store
+from database import pokemon_database  
+
+# Install missing package
+!pip install pymongo[srv]
 
 # Connect to MongoDB
 client = pymongo.MongoClient('mongodb+srv://vinamratiwari579:m6YDRYH8HbwuEqxt@cluster0.x7ac1wt.mongodb.net/?retryWrites=true&w=majority')
 db = client['pokemon_bot']
 collection = db['pokedex']
 leaderboard_collection = db['leaderboard']
-
 
 # Global variables to track the group message count and the currently announced Pokémon
 message_count = 0
@@ -29,6 +30,8 @@ api_id = 16743442
 api_hash = '12bbd720f4097ba7713c5e40a11dfd2a'
 bot_token = '7113297786:AAFS2ay9_nr8VwCHUe4nLlrPRwHNV5xErb8'
 app = Client("pokemon_bot", api_id, api_hash, bot_token=bot_token)
+
+# Rest of your code...
 
 @app.on_message(filters.command("start"))
 def start(_, message):
