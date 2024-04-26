@@ -12,8 +12,6 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from PIL import Image, ImageDraw, ImageFont
 from database import pokemon_database  
 
-# Install missing package
-!pip install pymongo[srv]
 
 # Connect to MongoDB
 client = pymongo.MongoClient('mongodb+srv://vinamratiwari579:m6YDRYH8HbwuEqxt@cluster0.x7ac1wt.mongodb.net/?retryWrites=true&w=majority')
